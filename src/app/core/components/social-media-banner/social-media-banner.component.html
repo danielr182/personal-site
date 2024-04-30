@@ -1,0 +1,12 @@
+<ul class="flex group-[.vertical]:flex-col gap-6">
+  @for (socialItem of socialItems; track $index) {
+  <li>
+    <a [href]="socialItem.link" target="_blank"
+      ><img
+        class="hover:scale-125 transition-all h-5 lg:h-10"
+        [src]="'/assets/icons/' + socialItem.icon"
+        [alt]="socialItem.icon"
+    /></a>
+  </li>
+  }
+</ul>
