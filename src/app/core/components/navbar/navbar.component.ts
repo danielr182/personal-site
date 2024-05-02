@@ -27,8 +27,8 @@ export class NavbarComponent {
   isSideNavbarCollapsed = true;
   readonly options: { elementId: Section; label: string }[] = [
     { elementId: Section.about, label: 'About' },
-    { elementId: Section.work, label: 'Work' },
     { elementId: Section.experience, label: 'Experience' },
+    { elementId: Section.work, label: 'Work' },
     { elementId: Section.contact, label: 'Contact' },
   ];
 
@@ -39,6 +39,7 @@ export class NavbarComponent {
 
   onOutsideMenuClick(): void {
     if (!this.isSideNavbarCollapsed) {
+      console.log('outside')
       this.setNavbarCollapsed(true);
     }
   }

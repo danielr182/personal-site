@@ -1,12 +1,14 @@
 <nav
-  class="fixed z-10 flex h-16 w-full justify-between px-6 transition-all duration-300 sm:justify-around"
+  class="nabvar fixed z-10 flex h-16 w-full justify-between px-6 transition-all duration-300 sm:justify-around"
   [ngClass]="{
     'mt-7': prevScrollpos === 0,
-    '-translate-y-16': !isNavbarDisplayed,
-    'bg-main shadow-[0px_4px_10px_-2px] shadow-gray-950':
-      isNavbarDisplayed && prevScrollpos > 0
+    '-translate-y-16': !isNavbarDisplayed
   }"
 >
+  <div
+    class="absolute left-0 size-full bg-mainOpacity shadow-[0px_4px_10px_-2px_black] backdrop-blur-sm transition-all"
+    [ngClass]="isNavbarDisplayed && prevScrollpos > 0 ? 'visible' : 'invisible'"
+  ></div>
   <a class="z-20 my-2">
     <img
       src="/assets/icons/logo-dr.svg"
@@ -18,7 +20,10 @@
     <ng-container *ngTemplateOutlet="navOptions"></ng-container>
   </ul>
   <div class="flex h-full items-center">
-    <a class="btn-primary hidden h-fit cursor-pointer sm:inline-block"
+    <a
+      href="/assets/docs/resume.pdf"
+      target="_blank"
+      class="btn-primary hidden h-fit cursor-pointer sm:inline-block"
       >Resume</a
     >
     <a
@@ -38,20 +43,25 @@
     </a>
   </div>
   <div
-    class="side-menu fixed bottom-0 right-0 top-0 z-20 flex h-screen w-72 translate-x-72 flex-col bg-mainAlt transition-all duration-500 sm:hidden"
-    [ngClass]="{ 'translate-x-0 blur-none': !isSideNavbarCollapsed }"
+    class="side-menu fixed bottom-0 right-0 top-0 z-20 flex h-screen w-72 flex-col bg-mainAlt transition-all duration-500 sm:hidden"
+    [ngClass]="isSideNavbarCollapsed ? 'translate-x-72' : 'translate-x-0'"
     (appClickOutside)="onOutsideMenuClick()"
   >
     <ul class="flex h-full flex-col justify-center gap-8 text-primary">
       <ng-container *ngTemplateOutlet="navOptions"></ng-container>
       <div class="mt-20 text-center">
-        <a class="btn-primary cursor-pointer">Resume</a>
+        <a
+          href="/assets/docs/resume.pdf"
+          target="_blank"
+          class="btn-primary cursor-pointer"
+          >Resume</a
+        >
       </div>
     </ul>
   </div>
   <div
-    class="fixed left-0 top-0 z-10 size-full bg-black/10 opacity-0 transition-all sm:hidden"
-    [ngClass]="{ 'opacity-100 backdrop-blur-sm': !isSideNavbarCollapsed }"
+    class="fixed left-0 top-0 z-10 size-full bg-black/10 transition-all sm:hidden"
+    [ngClass]="isSideNavbarCollapsed ? 'invisible' : 'visible backdrop-blur-sm'"
   ></div>
 </nav>
 

@@ -4,7 +4,7 @@
   ></app-social-media-banner>
 </aside>
 <section [id]="section.home" class="h-screen flex justify-center">
-  <app-star-canvas class="size-full absolute -z-10"></app-star-canvas>
+  <app-star-canvas class="size-full fixed -z-10"></app-star-canvas>
   <div
     class="h-full relative flex flex-col gap-16 justify-center text-center mx-16 sm:mx-32"
   >
@@ -27,8 +27,8 @@
     </div>
   </div>
 </section>
-<section [id]="section.about" class="h-screen bg-secondary">
-  <app-about></app-about>
+<section [id]="section.about" class="h-screen">
+  <app-about class="max-w-96"></app-about>
 </section>
 <section [id]="section.experience" class="h-screen">
   <app-experience></app-experience>

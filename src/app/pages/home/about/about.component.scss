@@ -1,0 +1,33 @@
+@tailwind utilities;
+
+.title {
+  position: relative;
+
+  &:after {
+    content: "";
+    background-color: theme("colors.primary");
+    height: 4px;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+  }
+}
+
+@layer utilities {
+  .photo {
+    position: relative;
+    z-index: 0;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 32px;
+      left: -32px;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      border: 6px solid theme("colors.primary");
+    }
+  }
+}
