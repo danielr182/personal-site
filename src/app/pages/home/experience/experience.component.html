@@ -1,1 +1,28 @@
-<p>experience works!</p>
+<article class="card min-w-[600px] rounded-md bg-white/10 px-8 py-24">
+  <h2 class="title mb-10 flex w-fit text-2xl text-primary lg:text-3xl">Where I've Worked</h2>
+  <ul class="timeline grid list-none grid-cols-[1fr_4rem_1fr] gap-x-1">
+    @for (workExperience of workExperiences; track $index) {
+      <li class="timeline-item group flex min-h-52 h-fit py-4 items-center gap-6 odd:flex-row-reverse">
+        <div class="company-logo flex size-20 cursor-pointer items-center rounded bg-white/20 p-3">
+          <img
+            class="h-fit"
+            [src]="'/assets/images/' + workExperience.img"
+            [alt]="workExperience.img"
+            (click)="toogleWorkExperience(workExperience)" />
+        </div>
+        <div class="flex w-[450px] cursor-pointer flex-col group-odd:text-end group-even:text-start">
+          <h2 class="text-2xl font-bold text-[#e4563e]">{{ workExperience.startDate }}</h2>
+          <h3 class="text-primary">{{ workExperience.jobTitle }}</h3>
+          <h3 class="text-primary">at {{ workExperience.company }}</h3>
+          <ol
+            class="mt-4 list-inside list-disc flex-col gap-3 marker:text-primary"
+            [ngClass]="workExperience.isCollapsed ? 'hidden' : 'flex'">
+            @for (activity of workExperience.activities; track $index) {
+              <li>{{ activity }}</li>
+            }
+          </ol>
+        </div>
+      </li>
+    }
+  </ul>
+</article>

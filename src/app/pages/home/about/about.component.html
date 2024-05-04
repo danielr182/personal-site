@@ -1,30 +1,48 @@
 <article
-  class="flex h-full flex-col items-center justify-center px-6 sm:px-16 md:px-48 lg:px-80"
+  class="card flex size-fit flex-col items-center justify-center gap-8 rounded-md bg-white/10 p-8 sm:gap-20 md:p-24 md:pr-20 lg:flex-row 2xl:gap-32"
 >
-  <section
-    class="card flex h-fit w-full flex-col justify-center gap-8 bg-black/40 p-24 sm:flex-row sm:gap-40"
+  <div
+    class="sm:photo group m-4 flex w-fit max-w-80 hover:before:left-0 hover:before:top-0 sm:m-8 md:m-0"
   >
-    <div class="sm:photo flex w-full sm:max-w-md">
-      <img
-        class="border-[6px] border-primary object-cover sm:border-secondary"
-        src="./assets/images/intramuros.jpg"
-      />
+    <img
+      class="border-[6px] border-primary object-cover grayscale transition-all duration-300 group-hover:grayscale-0 sm:border-secondary"
+      src="./assets/images/intramuros.jpg"
+    />
+  </div>
+  <div class="flex flex-col justify-center sm:max-w-[400px]">
+    <h2 class="title mb-10 flex w-fit text-2xl text-primary lg:text-3xl">
+      About me
+    </h2>
+    <div class="flex flex-col gap-4">
+      <p>
+        I'm Daniel, an Angular Front-end developer based in Colombia. My Love
+        for coding started at a young age when I realized I could make things
+        come to life with it.
+      </p>
+      <p>
+        I've had the opportunity to work in large companies that provide
+        software services to clients around the world.
+      </p>
+      <p>
+        When I'm not at my computer I like to spend my time hiking, trekking, or
+        mountain biking.
+      </p>
+      <p>I've worked with these technologies:</p>
+      <ul
+        class="mt-4 grid list-none gap-x-10 gap-y-4 min-[0px]:grid-cols-2 min-[380px]:grid-cols-3 sm:grid-cols-4 md:grid-cols-5"
+      >
+        @for (skill of skills; track $index) {
+          <li class="flex cursor-default flex-col items-center">
+            <img
+              class="peer h-6 w-fit transition-all hover:scale-110 lg:h-7"
+              [src]="'/assets/icons/' + skill.icon"
+              [alt]="skill.icon"
+            /><span class="text-sm peer-hover:text-primary">{{
+              skill.label
+            }}</span>
+          </li>
+        }
+      </ul>
     </div>
-    <div class="flex flex-col justify-center sm:max-w-md">
-      <h2 class="title mb-10 flex w-fit text-primary sm:text-2xl">About me</h2>
-      <p>
-        I almost have 8 years of experience in building, maintaining, and
-        enhancing websites.
-      </p>
-      <p>
-        My expertise lies in JavaScript, HTML, and CSS, and I am well-versed in
-        working within an agile environment.
-      </p>
-      <p>
-        Currently, I am looking to expand my skills and expertise in developing
-        mobile applications and the Internet of Things.
-      </p>
-      <p>I'm based in Colombia.</p>
-    </div>
-  </section>
+  </div>
 </article>

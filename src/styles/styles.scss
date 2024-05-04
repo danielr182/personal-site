@@ -1,11 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-$shadow-color: 216deg 100% 3% / 0.36;
 
 @font-face {
   font-family: "SourceCodePro";
-  src: url(./assets/fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.ttf);
+  src: url(../assets/fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.ttf);
 }
 
 body {
@@ -15,9 +14,9 @@ body {
 @layer components {
   .btn-primary {
     -webkit-transition: 0.3s all ease;
-    border: 1px solid theme('colors.primary');
+    border: 1px solid theme("colors.primary");
     border-radius: 0.25rem;
-    color: theme('colors.primary');
+    color: theme("colors.primary");
     cursor: pointer;
     display: inline-block;
     padding: 0.25rem 1rem;
@@ -27,20 +26,20 @@ body {
 
     &:before {
       -webkit-transition: 0.5s all ease;
-      background-color: theme('colors.primary');
+      background-color: theme("colors.primary");
       bottom: 0;
-      content: '';
+      content: "";
       left: 50%;
       opacity: 0;
       position: absolute;
       right: 50%;
       top: 0;
       transition: 0.5s all ease;
-      z-index: -2;
+      z-index: -1;
     }
     &:hover,
     &:focus {
-      color: theme('colors.main');
+      color: theme("colors.main");
 
       &:before {
         -webkit-transition: 0.5s all ease;
@@ -51,14 +50,20 @@ body {
       }
     }
   }
-}
 
-.card {
-  box-shadow:
-  0.3px 0.5px 0.7px hsl($shadow-color),
-  0.8px 1.6px 2px -0.8px hsl($shadow-color),
-  2.1px 4.1px 5.2px -1.7px hsl($shadow-color),
-  5px 10px 12.6px -2.5px hsl($shadow-color);
+  .title {
+    position: relative;
+  
+    &:after {
+      content: "";
+      background-color: theme("colors.primary");
+      height: 4px;
+      width: 50%;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+    }
+  }
 }
 
 @keyframes fade-in {
@@ -67,5 +72,5 @@ body {
   }
   to {
     opacity: 1;
-  }  
+  }
 }

@@ -15,9 +15,6 @@ export class NavbarComponent {
   @HostListener('window:scroll', ['$event'])
   onScroll(event: PointerEvent) {
     const currentScrollPos = window.scrollY;
-    if (currentScrollPos === 0) {
-      console.log('at top');
-    }
     this.isNavbarDisplayed = (this.prevScrollpos > currentScrollPos);
     this.prevScrollpos = currentScrollPos;
   }
@@ -39,7 +36,6 @@ export class NavbarComponent {
 
   onOutsideMenuClick(): void {
     if (!this.isSideNavbarCollapsed) {
-      console.log('outside')
       this.setNavbarCollapsed(true);
     }
   }

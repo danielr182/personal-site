@@ -16,19 +16,21 @@
       class="h-full cursor-pointer transition-all hover:scale-125"
     />
   </a>
-  <ul class="z-10 hidden items-center text-primary sm:flex">
+  <ul class="hidden list-none items-center text-primary sm:flex">
     <ng-container *ngTemplateOutlet="navOptions"></ng-container>
   </ul>
-  <div class="flex h-full items-center">
+  <div class="z-50 hidden h-full items-center sm:flex">
     <a
       href="/assets/docs/resume.pdf"
       target="_blank"
-      class="btn-primary hidden h-fit cursor-pointer sm:inline-block"
+      class="btn-primary h-fit cursor-pointer"
       >Resume</a
     >
+  </div>
+  <div class="flex h-full items-center sm:hidden">
     <a
       (click)="setNavbarCollapsed(!isSideNavbarCollapsed)"
-      class="relative z-50 flex h-full w-10 sm:hidden"
+      class="relative z-50 flex h-full w-10"
     >
       <img
         class="nav-action-icon scale-[2]"
@@ -47,7 +49,9 @@
     [ngClass]="isSideNavbarCollapsed ? 'translate-x-72' : 'translate-x-0'"
     (appClickOutside)="onOutsideMenuClick()"
   >
-    <ul class="flex h-full flex-col justify-center gap-8 text-primary">
+    <ul
+      class="flex h-full list-none flex-col justify-center gap-8 text-primary"
+    >
       <ng-container *ngTemplateOutlet="navOptions"></ng-container>
       <div class="mt-20 text-center">
         <a

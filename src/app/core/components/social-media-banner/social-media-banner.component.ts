@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './social-media-banner.component.scss'
 })
 export class VerticalBannerComponent {
-  socialItems = [
+  readonly socialItems: { icon: string; link: string }[] = [
     {
       icon: 'linkedin.svg',
       link: 'https://www.linkedin.com/in/danielr182',

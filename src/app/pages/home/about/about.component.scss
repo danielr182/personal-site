@@ -1,18 +1,10 @@
+@import 'mixins';
 @tailwind utilities;
 
-.title {
-  position: relative;
-
-  &:after {
-    content: "";
-    background-color: theme("colors.primary");
-    height: 4px;
-    width: 50%;
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-  }
+.card {
+  @include medium-shadow($shadow-main-color);
 }
+
 
 @layer utilities {
   .photo {
@@ -28,6 +20,7 @@
       width: 100%;
       z-index: -1;
       border: 6px solid theme("colors.primary");
+      transition: all ease 0.3s;
     }
   }
 }

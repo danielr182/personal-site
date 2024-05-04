@@ -1,37 +1,31 @@
-<aside class="hidden fixed h-screen items-center sm:flex">
+<aside class="fixed hidden h-screen items-center sm:flex">
   <app-social-media-banner
-    class="group vertical bg-main rounded-xl ml-2 shadow-[0px_0px_10px_1px] shadow-primary p-3 lg:p-4"
-  ></app-social-media-banner>
+    class="vertical group ml-2 bg-transparent p-3 rounded-xl shadow-[0px_0px_5px_1px] shadow-primary lg:p-4"></app-social-media-banner>
 </aside>
-<section [id]="section.home" class="h-screen flex justify-center">
-  <app-star-canvas class="size-full fixed -z-10"></app-star-canvas>
-  <div
-    class="h-full relative flex flex-col gap-16 justify-center text-center mx-16 sm:mx-32"
-  >
+<section [id]="section.home" class="flex h-screen justify-center">
+  <app-star-canvas class="fixed -z-10 size-full"></app-star-canvas>
+  <div class="relative mx-16 flex h-full flex-col justify-center gap-16 text-center sm:mx-32">
     <div class="text-2xl sm:text-4xl">
       <h1 class="mb-6">
         Hi, I'm
-        <span class="text-primary text-3xl sm:text-5xl">Daniel Rodríguez</span>
+        <span class="text-3xl text-primary sm:text-5xl">Daniel Rodríguez</span>
       </h1>
-      <p class="text-xl sm:text-3xl">
-        An Angular FrontEnd developer with a great passion for coding.
-      </p>
+      <p class="text-xl sm:text-3xl">An Angular Front-end developer with a great passion for coding.</p>
     </div>
     <div>
       <a (click)="goToAboutSection()" class="btn-primary">About me</a>
     </div>
     <div class="absolute bottom-4 w-full">
       <app-social-media-banner
-        class="flex mx-auto rounded-xl shadow-[0px_0px_10px_1px] shadow-primary p-3 w-fit sm:hidden"
-      ></app-social-media-banner>
+        class="mx-auto flex w-fit rounded-xl p-3 shadow-[0px_0px_5px_1px] shadow-primary sm:hidden"></app-social-media-banner>
     </div>
   </div>
 </section>
-<section [id]="section.about" class="h-screen">
-  <app-about class="max-w-96"></app-about>
+<section [id]="section.about" class="h-fit">
+  <app-about class="section"></app-about>
 </section>
-<section [id]="section.experience" class="h-screen">
-  <app-experience></app-experience>
+<section [id]="section.experience" class="h-fit">
+  <app-experience class="section"></app-experience>
 </section>
 <section [id]="section.work" class="h-screen"><app-work></app-work></section>
 <section [id]="section.contact" class="h-screen">
