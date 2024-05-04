@@ -1,6 +1,6 @@
 <aside class="fixed hidden h-screen items-center sm:flex">
   <app-social-media-banner
-    class="vertical group ml-2 bg-transparent p-3 rounded-xl shadow-[0px_0px_5px_1px] shadow-primary lg:p-4"></app-social-media-banner>
+    class="vertical group ml-2 rounded-xl bg-transparent p-3 shadow-[0px_0px_5px_1px] shadow-primary lg:p-4"></app-social-media-banner>
 </aside>
 <section [id]="section.home" class="flex h-screen justify-center">
   <app-star-canvas class="fixed -z-10 size-full"></app-star-canvas>
@@ -21,11 +21,11 @@
     </div>
   </div>
 </section>
-<section [id]="section.about" class="h-fit">
-  <app-about class="section"></app-about>
+<section [id]="section.about" class="section">
+  <app-about></app-about>
 </section>
-<section [id]="section.experience" class="h-fit">
-  <app-experience class="section"></app-experience>
+<section [id]="section.experience" class="section">
+  <app-experience></app-experience>
 </section>
 <section [id]="section.work" class="h-screen"><app-work></app-work></section>
 <section [id]="section.contact" class="h-screen">

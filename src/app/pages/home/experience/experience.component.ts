@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { WorkExperience } from '../../../core/interfaces/work-experience';
+import { TimelineItemDetailDirective } from '../../../shared/directives/timeline-item-detail.directive';
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TimelineItemDetailDirective],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.scss',
 })
 export class ExperienceComponent {
-
   isWorkExperienceCollapsed = true;
   readonly workExperiences: WorkExperience[] = [
     {
@@ -64,7 +64,18 @@ export class ExperienceComponent {
     },
   ];
 
-  toogleWorkExperience(workExperience: WorkExperience): void {
-    workExperience.isCollapsed = !workExperience.isCollapsed;
+  toogleWorkExperience(workExperience: WorkExperience, el: HTMLOListElement, event: Event): void {
+    if (workExperience.isCollapsed) {
+      if (event.type === 'mouseenter') {
+        el.style.maxHeight = `${el.scrollHeight}px`;
+      } else if (event.type === 'mouseleave') {
+        el.style.maxHeight = '0';
+      }
+    }
+
+    if (event.type === 'click') {
+      el.style.maxHeight = workExperience.isCollapsed ? `${el.scrollHeight}px` : '0';
+      workExperience.isCollapsed = !workExperience.isCollapsed;
+    }
   }
 }
