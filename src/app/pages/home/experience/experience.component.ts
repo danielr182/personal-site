@@ -15,16 +15,17 @@ export class ExperienceComponent {
   readonly workExperiences: WorkExperience[] = [
     {
       activities: [
-        'Upgraded Angular v9 apps to v12',
+        'Upgraded Angular v9 apps to v15',
         "Created web apps to replace the client's legacy ones",
-        'Created new features and functionalities in Angular apps (v12)',
+        'Created new features and functionalities in Angular apps (v15)',
         'Created Angular libraries that were used in other Angular apps',
       ],
       company: 'Perficient',
       img: 'perficient.png',
       isCollapsed: true,
       jobTitle: 'Front-end Software Engineer',
-      startDate: 'July 2021',
+      startMonth: 'July',
+      startYear: '2021',
     },
     {
       activities: [
@@ -36,7 +37,8 @@ export class ExperienceComponent {
       img: 'globant.png',
       isCollapsed: true,
       jobTitle: 'Web UI developer',
-      startDate: '2019 July',
+      startMonth: 'July',
+      startYear: '2019',
     },
     {
       activities: [
@@ -48,7 +50,8 @@ export class ExperienceComponent {
       img: 'ibm.png',
       isCollapsed: true,
       jobTitle: 'Application Developer',
-      startDate: 'January 2016',
+      startMonth: 'January',
+      startYear: '2016',
     },
     {
       activities: [
@@ -60,7 +63,8 @@ export class ExperienceComponent {
       img: 'ibm.png',
       isCollapsed: true,
       jobTitle: 'Test Specialist',
-      startDate: '2010 August',
+      startMonth: 'August',
+      startYear: '2010',
     },
   ];
 

@@ -1,10 +1,11 @@
-<article class="card min-w-[600px] rounded-md bg-white/10 px-8 py-24">
-  <h2 class="title ml-16 flex w-fit text-2xl text-primary lg:text-3xl">Where I've Worked</h2>
-  <ul class="timeline mt-32 grid list-none grid-cols-[1fr_4rem_1fr] gap-x-1">
+<article class="card rounded-md bg-white/10 py-24 sm:px-8">
+  <h2 class="title ml-8 flex w-fit text-2xl text-primary sm:ml-16 lg:text-3xl">Where I've Worked</h2>
+  <ul class="timeline mt-20 grid list-none grid-cols-[4rem_1fr] gap-x-1 md:mt-24 md:grid-cols-[1fr_4rem_1fr] xl:mt-28">
     @for (workExperience of workExperiences; track $index) {
-      <li class="timeline-item group/timeline flex h-fit min-h-52 items-start gap-6 py-4 odd:flex-row-reverse">
+      <li
+        class="timeline-item group/timeline grid h-fit grid-flow-row-dense grid-cols-[4rem_1fr] gap-x-6 py-4 md:odd:grid-cols-[1fr_4rem]">
         <div
-          class="company-logo group/company-logo flex size-20 cursor-pointer items-center rounded bg-black/30 p-3"
+          class="company-logo group/company-logo flex size-16 cursor-pointer items-center rounded bg-black/30 p-2 md:p-3 md:group-odd/timeline:order-last"
           (click)="toogleWorkExperience(workExperience, workExperienceDetail, $event)"
           (mouseenter)="toogleWorkExperience(workExperience, workExperienceDetail, $event)"
           (mouseleave)="toogleWorkExperience(workExperience, workExperienceDetail, $event)">
@@ -13,13 +14,16 @@
             [src]="'/assets/images/' + workExperience.img"
             [alt]="workExperience.img" />
         </div>
-        <div class="flex w-full max-w-[450px] flex-col group-odd/timeline:text-end group-even/timeline:text-start">
-          <h2 class="text-2xl font-bold text-[#F5B003]">
+        <div
+          class="flex w-full max-w-[450px] flex-col md:group-odd/timeline:text-end md:group-even/timeline:text-start">
+          <h2 class="text-xl font-bold text-[#F5B003] md:text-2xl">
             <span
-              class="cursor-pointer transition-all hover:font-black"
+              class="cursor-pointer transition-all hover:font-black flex md:group-odd/timeline:flex-row-reverse"
               [appTimelineItemDetail]="workExperience"
               [elemToApplyStyle]="workExperienceDetail">
-              {{ workExperience.startDate }}
+              <span>{{ workExperience.startYear }}</span>
+              <span>&nbsp;</span>
+              <span>{{ workExperience.startMonth }}</span>              
             </span>
           </h2>
           <h3 class="text-primary contrast-[0.6]">
@@ -38,14 +42,14 @@
               at {{ workExperience.company }}
             </span>
           </h3>
-          <ol
-            #workExperienceDetail
-            class="mt-4 flex max-h-0 list-inside list-disc flex-col gap-3 overflow-hidden transition-[max-height] duration-700 marker:text-primary">
-            @for (activity of workExperience.activities; track $index) {
-              <li>{{ activity }}</li>
-            }
-          </ol>
         </div>
+        <ol
+          #workExperienceDetail
+          class="col-span-2 mt-4 flex max-h-0 list-inside list-disc flex-col gap-3 overflow-hidden pr-1 transition-[max-height] duration-700 marker:text-primary md:group-odd/timeline:text-end">
+          @for (activity of workExperience.activities; track $index) {
+            <li>{{ activity }}</li>
+          }
+        </ol>
       </li>
     }
   </ul>

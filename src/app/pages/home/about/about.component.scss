@@ -1,26 +1,29 @@
 @import 'mixins';
-@tailwind utilities;
 
 .card {
   @include medium-shadow($shadow-main-color);
 }
 
-
-@layer utilities {
+@screen sm {
   .photo {
     position: relative;
     z-index: 0;
 
     &:before {
-      content: "";
+      content: '';
       position: absolute;
-      top: 32px;
-      left: -32px;
+      top: 24px;
+      left: -24px;
       height: 100%;
       width: 100%;
       z-index: -1;
-      border: 6px solid theme("colors.primary");
+      border: 6px solid theme('colors.primary');
       transition: all ease 0.3s;
+    }
+
+    &:hover::before {
+      top: 0;
+      left: 0;
     }
   }
 }

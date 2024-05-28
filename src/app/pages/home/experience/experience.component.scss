@@ -4,18 +4,18 @@
   /* vertical line */
   &:before {
     content: '';
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 1 / span 10;
     background-color: theme('colors.secondary');
     width: 0.25rem;
     margin: 0 auto;
     border-radius: 1rem;
-    transform: translateY(-3.25rem);
+    transform: translateY(-0.5rem);
   }
 
   &-item {
-    grid-row: span 2;
     position: relative;
+    grid-column: 2;
 
     &:before {
       content: '';
@@ -24,47 +24,50 @@
       width: 2.25rem;
       background-color: theme('colors.secondary');
       position: absolute;
-      top: 3.5rem;
-    }
-
-    // &:first-child:after {
-    //   content: '';
-    //   position: absolute;
-    //   background-color: theme('colors.secondary');
-    //   border-radius: 1rem;
-    //   top: 0;
-    //   right: 0;
-    //   height: 1rem;
-    //   width: 1rem;
-    //   transform: translate(2.75rem, -3.25rem);
-    // }
-
-    &:nth-child(odd) {
-      grid-column: 1;
-
-      &:before {
-        right: 0;
-        transform: translate(2.25rem, -50%);        
-      }
-    }
-    &:nth-child(even) {
-      grid-column: 3;
-
-      &:before {
-        left: 0;
-        transform: translate(-2.25rem, -50%);
-      }
-    }
-    &:nth-child(1) {
-      grid-row: 2 / 4;
-    }
-    /* start second card */
-    &:nth-child(2) {
-      grid-row: 3 / 5;
+      top: 3rem;
+      transform: translate(-2.25rem, -50%);
     }
   }
 }
 
-.card, .company-logo {
+.card,
+.company-logo {
   @include medium-shadow($shadow-main-color);
+}
+
+@screen md {
+  .timeline {
+    &:before {
+      grid-column: 2;
+      transform: translateY(-1rem);
+    }
+
+    &-item {
+      grid-row: span 2;
+
+      &:nth-child(odd) {
+        grid-column: 1;
+
+        &:before {
+          right: 0;
+          transform: translate(2.25rem, -50%);
+        }
+      }
+      &:nth-child(even) {
+        grid-column: 3;
+
+        &:before {
+          left: 0;
+          transform: translate(-2.25rem, -50%);
+        }
+      }
+      &:nth-child(1) {
+        grid-row: 2 / 4;
+      }
+      /* start second card */
+      &:nth-child(2) {
+        grid-row: 3 / 5;
+      }
+    }
+  }
 }

@@ -4,5 +4,6 @@ export interface WorkExperience {
   img: string;
   isCollapsed: boolean;
   jobTitle: string;
-  startDate: string;
+  startMonth: string;
+  startYear: string;
 }
