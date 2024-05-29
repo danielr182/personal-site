@@ -1,0 +1,35 @@
+<aside class="fixed hidden h-screen items-center sm:flex">
+  <app-social-media-banner
+    class="vertical group ml-2 rounded-xl bg-transparent p-3 shadow-[0px_0px_5px_1px] shadow-primary lg:p-4"></app-social-media-banner>
+</aside>
+<section [id]="section.home" class="flex h-screen justify-center">
+  <app-star-canvas class="fixed -z-10 size-full"></app-star-canvas>
+  <div class="relative mx-16 flex h-full flex-col justify-center gap-16 text-center sm:mx-32">
+    <div class="text-2xl sm:text-4xl">
+      <h1 class="mb-6">
+        Hi, I'm
+        <span class="text-3xl text-primary sm:text-5xl">Daniel Rodríguez</span>
+      </h1>
+      <p class="text-xl sm:text-3xl">An Angular Front-end developer with a great passion for coding.</p>
+    </div>
+    <div>
+      <a (click)="goToAboutSection()" class="btn-primary">About me</a>
+    </div>
+    <div class="absolute bottom-4 w-full">
+      <app-social-media-banner
+        class="mx-auto flex w-fit rounded-xl p-3 shadow-[0px_0px_5px_1px] shadow-primary sm:hidden"></app-social-media-banner>
+    </div>
+  </div>
+</section>
+<section [id]="section.about" class="section">
+  <app-about></app-about>
+</section>
+<section [id]="section.experience" class="section">
+  <app-experience></app-experience>
+</section>
+<section [id]="section.work" class="section">
+  <app-work></app-work>
+</section>
+<section [id]="section.contact" class="section">
+  <app-contact></app-contact>
+</section>

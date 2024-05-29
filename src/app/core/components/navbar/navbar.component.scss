@@ -1,0 +1,16 @@
+.nabvar {
+  animation: fade-in 500ms linear;
+}
+
+.nav-action-icon {
+  cursor: pointer;
+  position: absolute;
+  left: -0.25rem;
+  top: 0.15rem;
+  height: 100%;
+  transition: all 0.5s ease;
+}
+
+.side-menu {
+  max-width: calc(100vw - 90px);
+}

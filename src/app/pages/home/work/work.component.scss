@@ -1,0 +1,34 @@
+@import 'mixins';
+
+.card {
+  &-text {
+    grid-row: 2;
+    transform: translateY(-5rem);
+  }
+  &-img {
+    grid-row: 1;
+  }
+}
+
+@screen md {
+  .card {
+    @include medium-shadow($shadow-main-color);
+
+    &-item:nth-child(even) {
+      .card-text {
+        grid-area: 1 / 7 / 1 / -1;
+      }
+      .card-img {
+        grid-area: 1 / 1 / 1 / 8;
+      }
+    }
+
+    &-text {
+      grid-area: 1 / 1 / 1 / 7;
+      transform: unset;
+    }
+    &-img {
+      grid-area: 1 / 6 / 1 / -1;
+    }
+  }
+}
