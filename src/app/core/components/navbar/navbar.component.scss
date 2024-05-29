@@ -2,26 +2,6 @@
   animation: fade-in 500ms linear;
 }
 
-.nav-option {
-  cursor: pointer;
-  position: relative;
-  
-  &:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0%;
-    transition: all 0.5s ease;
-  }
-
-  &:hover::after {
-    width: 100%;
-    height: 1px;
-    background-color: theme("colors.secondary");
-  }
-}
-
 .nav-action-icon {
   cursor: pointer;
   position: absolute;

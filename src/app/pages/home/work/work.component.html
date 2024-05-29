@@ -1,9 +1,9 @@
 <article class="card rounded-md bg-white/10 pt-16 sm:px-8 sm:py-24">
-  <h2 class="title ml-8 flex w-fit text-2xl text-primary sm:ml-16 lg:text-3xl">My work</h2>
+  <h2 class="title ml-8 flex w-fit text-2xl text-primary sm:ml-16 lg:text-3xl">What I've built</h2>
   <ul class="mt-[4.5rem] md:mt-10 lg:mt-20 lg:flex lg:flex-col lg:gap-28 xl:mt-28">
     @for (myWork of myWorks; track $index) {
       <li class="card-item group flex flex-col-reverse md:grid md:grid-cols-12 md:grid-rows-1 md:items-center">
-        <div class="card-text z-10 rounded-sm bg-main/90 md:z-auto md:bg-transparent md:group-even:text-end">
+        <div class="card-text z-[1] rounded-sm bg-main/90 md:z-auto md:bg-transparent md:group-even:text-end">
           <h2 class="px-6 pt-8 text-xl font-bold text-[#F5B003] md:px-2 md:pb-4 md:text-2xl">{{ myWork.name }}</h2>
           <p class="card relative z-10 p-6 md:bg-main/90">
             {{ myWork.description }}
@@ -29,9 +29,9 @@
             </ul>
           </div>
         </div>
-        <a class="card card-img content-end" [href]="myWork.url" target="_blank">
+        <a class="card-img content-end" [href]="myWork.url" target="_blank">
           <img
-            class="rounded-sm object-cover grayscale transition-all duration-300 hover:scale-110 hover:grayscale-0"
+            class="card rounded-sm object-cover grayscale transition-all duration-300 hover:scale-110 hover:grayscale-0"
             [src]="'./assets/images/' + myWork.image"
             [alt]="'website ' + myWork.image" />
         </a>

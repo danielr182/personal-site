@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-
+  readonly date = new Date();
+  readonly footer = `© ${this.date.getFullYear()} Made by Daniel Rodríguez`;
 }

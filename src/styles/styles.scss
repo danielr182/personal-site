@@ -8,28 +8,28 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
- 
+
 ::-webkit-scrollbar-thumb {
   background: rgba(#ffff, 0.3);
 }
 
 @font-face {
-  font-family: "SourceCodePro";
+  font-family: 'SourceCodePro';
   src: url(../assets/fonts/Source_Code_Pro/SourceCodePro-VariableFont_wght.ttf);
 }
 
 body {
-  font-family: "SourceCodePro";
+  font-family: 'SourceCodePro';
 }
 
 @layer components {
   .btn-primary {
     -webkit-transition: 0.3s all ease;
-    border: 1px solid theme("colors.primary");
+    border: 1px solid theme('colors.primary');
     border-radius: 0.25rem;
-    color: theme("colors.primary");
+    color: theme('colors.primary');
     cursor: pointer;
     display: inline-block;
     padding: 0.25rem 1rem;
@@ -39,9 +39,9 @@ body {
 
     &:before {
       -webkit-transition: 0.5s all ease;
-      background-color: theme("colors.primary");
+      background-color: theme('colors.primary');
       bottom: 0;
-      content: "";
+      content: '';
       left: 50%;
       opacity: 0;
       position: absolute;
@@ -52,7 +52,7 @@ body {
     }
     &:hover,
     &:focus {
-      color: theme("colors.main");
+      color: theme('colors.main');
 
       &:before {
         -webkit-transition: 0.5s all ease;
@@ -64,12 +64,32 @@ body {
     }
   }
 
+  .link {
+    cursor: pointer;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      transition: all 0.5s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+      height: 1px;
+      background-color: theme('colors.secondary');
+    }
+  }
+
   .title {
     position: relative;
-  
+
     &:after {
-      content: "";
-      background-color: theme("colors.primary");
+      content: '';
+      background-color: theme('colors.primary');
       height: 4px;
       width: 50%;
       position: absolute;

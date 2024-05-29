@@ -72,7 +72,7 @@
 <ng-template #navOptions>
   @for (option of options; track $index) {
     <li class="relative mx-4 text-center">
-      <a class="nav-option" (click)="gotoSection(option.elementId)">{{
+      <a class="link" (click)="gotoSection(option.elementId)">{{
         option.label
       }}</a>
     </li>

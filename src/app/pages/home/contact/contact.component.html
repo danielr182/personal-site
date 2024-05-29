@@ -1,1 +1,26 @@
-<p>contact works!</p>
+<article class="card relative w-full rounded-md bg-white/10 py-16 sm:px-8 sm:py-24">
+  <h2 class="title ml-8 flex w-fit text-2xl text-primary sm:ml-16 lg:text-3xl">Contact</h2>
+  <div class="mt-16 flex flex-col flex-wrap items-center gap-x-8 gap-y-6 px-6 md:flex-row lg:px-20">
+    <div class="flex flex-1 flex-col break-all">
+      <p>You can drop me a line at</p>
+      <a
+        href="mailto:daniel.rodriguez182@gmail.com"
+        class="link w-fit text-primary transition-all duration-300 hover:font-semibold">
+        daniel.rodriguez182&#64;gmail.com
+      </a>
+    </div>
+    <a href="mailto:daniel.rodriguez182@gmail.com" class="flex h-60 max-w-80 flex-1 cursor-pointer justify-center">
+      <img
+        class="card size-full border object-cover grayscale transition-all duration-300 hover:scale-105"
+        src="/assets/images/coding.jpg"
+        alt="Person coding" />
+    </a>
+  </div>
+  <a class="absolute -bottom-5 left-0 flex w-full justify-center">
+    <img
+      class="h-10 cursor-pointer rounded border border-primary bg-main transition-all hover:scale-125"
+      (click)="gotoHome()"
+      src="/assets/icons/double-chevron-up.svg"
+      alt="up-arrow to go up" />
+  </a>
+</article>
