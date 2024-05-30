@@ -9,8 +9,8 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class StarCanvasComponent implements AfterViewInit {
   @ViewChild('canvasRef', { static: false }) canvasRef!: ElementRef;
-  screenHeight = window.screen.height;
-  screenWidth = window.screen.width;
+  screenHeight = window.innerHeight;
+  screenWidth = window.innerWidth;
 
   private animateInterval!: ReturnType<typeof setInterval>;
   private context!: CanvasRenderingContext2D;
