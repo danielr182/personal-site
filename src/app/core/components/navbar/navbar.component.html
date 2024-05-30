@@ -3,78 +3,57 @@
   [ngClass]="{
     'mt-7': prevScrollpos === 0,
     '-translate-y-16': !isNavbarDisplayed
-  }"
->
+  }">
   <div
     class="absolute left-0 size-full bg-mainOpacity shadow-[0px_4px_10px_-2px_black] backdrop-blur-sm transition-all"
-    [ngClass]="isNavbarDisplayed && prevScrollpos > 0 ? 'visible' : 'invisible'"
-  ></div>
+    [ngClass]="isNavbarDisplayed && prevScrollpos > 0 ? 'visible' : 'invisible'"></div>
   <a class="z-20 my-2">
     <img
       src="/assets/icons/logo-dr.svg"
+      alt="Website logo"
       (click)="gotoSection()"
-      class="h-full cursor-pointer transition-all hover:scale-125"
-    />
+      class="h-full cursor-pointer transition-all hover:scale-125" />
   </a>
   <ul class="hidden list-none items-center text-primary sm:flex">
     <ng-container *ngTemplateOutlet="navOptions"></ng-container>
   </ul>
   <div class="z-50 hidden h-full items-center sm:flex">
-    <a
-      href="/assets/docs/resume.pdf"
-      target="_blank"
-      class="btn-primary h-fit cursor-pointer"
-      >Resume</a
-    >
+    <a href="/assets/docs/resume.pdf" target="_blank" class="btn-primary h-fit cursor-pointer">Resume</a>
   </div>
   <div class="flex h-full items-center sm:hidden">
-    <a
-      (click)="setNavbarCollapsed(!isSideNavbarCollapsed)"
-      class="relative z-50 flex h-full w-10"
-    >
+    <a (click)="setNavbarCollapsed(!isSideNavbarCollapsed)" class="relative z-50 flex h-full w-10">
       <img
         class="nav-action-icon scale-[2]"
         [ngClass]="{ 'scale-y-0 opacity-0': !isSideNavbarCollapsed }"
         src="/assets/icons/menu.svg"
-      />
+        alt="Menu icon" />
       <img
         class="nav-action-icon scale-75"
         [ngClass]="{ 'rotate-180 opacity-0': isSideNavbarCollapsed }"
         src="/assets/icons/close.svg"
-      />
+        alt="Menu close" />
     </a>
   </div>
   <div
     class="side-menu fixed bottom-0 right-0 top-0 z-20 flex h-screen w-72 flex-col bg-mainAlt transition-all duration-500 sm:hidden"
     [ngClass]="isSideNavbarCollapsed ? 'translate-x-72' : 'translate-x-0'"
-    (appClickOutside)="onOutsideMenuClick()"
-  >
-    <ul
-      class="flex h-full list-none flex-col justify-center gap-8 text-primary"
-    >
+    (appClickOutside)="onOutsideMenuClick()">
+    <ul class="flex h-full list-none flex-col justify-center gap-8 text-primary">
       <ng-container *ngTemplateOutlet="navOptions"></ng-container>
       <div class="mt-20 text-center">
-        <a
-          href="/assets/docs/resume.pdf"
-          target="_blank"
-          class="btn-primary cursor-pointer"
-          >Resume</a
-        >
+        <a href="/assets/docs/resume.pdf" target="_blank" class="btn-primary cursor-pointer">Resume</a>
       </div>
     </ul>
   </div>
   <div
     class="fixed left-0 top-0 z-10 size-full bg-black/10 transition-all sm:hidden"
-    [ngClass]="isSideNavbarCollapsed ? 'invisible' : 'visible backdrop-blur-sm'"
-  ></div>
+    [ngClass]="isSideNavbarCollapsed ? 'invisible' : 'visible backdrop-blur-sm'"></div>
 </nav>
 
 <ng-template #navOptions>
   @for (option of options; track $index) {
     <li class="relative mx-4 text-center">
-      <a class="link" (click)="gotoSection(option.elementId)">{{
-        option.label
-      }}</a>
+      <a class="link" (click)="gotoSection(option.elementId)">{{ option.label }}</a>
     </li>
   }
 </ng-template>
