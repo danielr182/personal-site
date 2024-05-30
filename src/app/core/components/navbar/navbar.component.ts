@@ -15,7 +15,7 @@ export class NavbarComponent {
   @HostListener('window:scroll', ['$event'])
   onScroll(event: PointerEvent) {
     const currentScrollPos = window.scrollY;
-    this.isNavbarDisplayed = (this.prevScrollpos > currentScrollPos);
+    this.isNavbarDisplayed = currentScrollPos <= 0 || this.prevScrollpos > currentScrollPos;
     this.prevScrollpos = currentScrollPos;
   }
 

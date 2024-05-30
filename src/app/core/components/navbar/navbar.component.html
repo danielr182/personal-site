@@ -1,7 +1,7 @@
 <nav
   class="nabvar fixed z-10 flex h-16 w-full justify-between px-6 transition-all duration-300 sm:justify-around"
   [ngClass]="{
-    'mt-7': prevScrollpos === 0,
+    'mt-7': prevScrollpos <= 0,
     '-translate-y-16': !isNavbarDisplayed
   }">
   <div

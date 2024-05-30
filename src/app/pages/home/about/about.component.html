@@ -22,7 +22,7 @@
         @for (skill of skills; track $index) {
           <li class="flex cursor-default flex-col items-center">
             <img
-              class="peer h-6 w-fit transition-all hover:scale-110 lg:h-7"
+              class="peer h-6 transition-all hover:scale-110 lg:h-7"
               [src]="'/assets/icons/' + skill.icon"
               [alt]="skill.icon" />
             <span class="text-sm peer-hover:text-primary">{{ skill.label }}</span>
