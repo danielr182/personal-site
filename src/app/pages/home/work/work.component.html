@@ -5,14 +5,14 @@
       <li class="card-item group flex flex-col-reverse md:grid md:grid-cols-12 md:grid-rows-1 md:items-center">
         <div class="card-text z-[1] rounded-sm bg-main/90 md:z-auto md:bg-transparent md:group-even:text-end">
           <h2 class="px-6 pt-8 text-xl font-bold text-[#F5B003] md:px-2 md:pb-4 md:text-2xl">{{ myWork.name }}</h2>
-          <p class="card relative z-10 p-6 md:bg-main/90">
+          <p class="card relative z-[9] p-6 md:bg-main/90">
             {{ myWork.description }}
           </p>
           <div class="flex flex-col gap-5 px-6 pb-5 md:px-2 md:pt-5">
             <ul
               class="flex flex-wrap gap-x-6 gap-y-2 text-xs md:group-odd:pr-16 md:group-even:justify-end md:group-even:pl-16">
               @for (technology of myWork.technologies; track $index) {
-                <li class="z-10">{{ technology }}</li>
+                <li class="z-[9]">{{ technology }}</li>
               }
             </ul>
             <ul class="flex gap-4 md:group-even:justify-end">
