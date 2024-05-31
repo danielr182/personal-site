@@ -14,7 +14,7 @@ export class StarCanvasComponent implements AfterViewInit {
 
   private animateInterval!: ReturnType<typeof setInterval>;
   private context!: CanvasRenderingContext2D;
-  private numStars = 200;
+  private numStars!: number;
   private fps = 60;
   private stars: Star[] = [];
 
@@ -24,6 +24,7 @@ export class StarCanvasComponent implements AfterViewInit {
 
   // Create all the stars
   private render(): void {
+    this.numStars = Math.round((this.screenHeight * this.screenWidth) / 10000);
     const canvasEl = this.canvasRef.nativeElement;
     canvasEl.setAttribute('height', this.screenHeight);
     canvasEl.setAttribute('width', this.screenWidth);
@@ -41,10 +42,7 @@ export class StarCanvasComponent implements AfterViewInit {
       this.stars.push(star);
     }
 
-    this.animateInterval = setInterval(
-      this.animate.bind(this),
-      1000 / this.fps
-    );
+    this.animateInterval = setInterval(this.animate.bind(this), 1000 / this.fps);
   }
 
   /* Animate the canvas */
@@ -103,8 +101,8 @@ export class Star {
       context.lineTo(pointerX, pointerY);
       radiansRotation += step;
 
-      pointerX = this.posX + Math.cos(radiansRotation) * this.length / 2;
-      pointerY = this.posY + Math.sin(radiansRotation) * this.length / 2;
+      pointerX = this.posX + (Math.cos(radiansRotation) * this.length) / 2;
+      pointerY = this.posY + (Math.sin(radiansRotation) * this.length) / 2;
       context.lineTo(pointerX, pointerY);
       radiansRotation += step;
     }
