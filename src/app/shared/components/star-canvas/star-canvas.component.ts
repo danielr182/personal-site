@@ -14,7 +14,7 @@ export class StarCanvasComponent implements AfterViewInit {
 
   private animateInterval!: ReturnType<typeof setInterval>;
   private context!: CanvasRenderingContext2D;
-  private numStars = 500;
+  private numStars = 200;
   private fps = 60;
   private stars: Star[] = [];
 
@@ -78,24 +78,17 @@ export class Star {
     this.increment = Math.random() * 0.03;
   }
 
-  draw(
-    context: CanvasRenderingContext2D,
-    screenW: number,
-    screenH: number
-  ): void {
-    context.rotate((Math.PI * 1) / 10);
+  draw(context: CanvasRenderingContext2D, screenW: number, screenH: number): void {
+    const step = Math.PI / 5;
+    let radiansRotation = (Math.PI * 3) / 2;
+    let pointerX = this.posX;
+    let pointerY = this.posY;
 
-    context.save();
-
-    // move into the middle of the canvas, just to make room
-    context.translate(this.posX, this.posY);
-
-    // Change the opacity
+    // Handle the opacity
     if (this.opacity > 1) {
       this.factor = -1;
     } else if (this.opacity <= 0) {
       this.factor = 1;
-
       this.posX = Math.round(Math.random() * screenW);
       this.posY = Math.round(Math.random() * screenH);
     }
@@ -103,21 +96,22 @@ export class Star {
     this.opacity += this.increment * this.factor;
 
     context.beginPath();
+    context.moveTo(this.posX, this.posY - this.length);
     for (var i = 5; i--; ) {
-      context.lineTo(0, this.length);
-      context.translate(0, this.length);
-      context.rotate((Math.PI * 2) / 10);
-      context.lineTo(0, -this.length);
-      context.translate(0, -this.length);
-      context.rotate(-((Math.PI * 6) / 10));
+      pointerX = this.posX + Math.cos(radiansRotation) * this.length;
+      pointerY = this.posY + Math.sin(radiansRotation) * this.length;
+      context.lineTo(pointerX, pointerY);
+      radiansRotation += step;
+
+      pointerX = this.posX + Math.cos(radiansRotation) * this.length / 2;
+      pointerY = this.posY + Math.sin(radiansRotation) * this.length / 2;
+      context.lineTo(pointerX, pointerY);
+      radiansRotation += step;
     }
-    context.lineTo(0, this.length);
     context.closePath();
     context.fillStyle = 'rgba(255, 255, 200, ' + this.opacity + ')';
     context.shadowBlur = 5;
     context.shadowColor = '#fff';
     context.fill();
-
-    context.restore();
   }
 }
