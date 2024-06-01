@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { AboutComponent } from './about/about.component';
 import { ScreenUtils } from '../../core/utils/screen-utils';
 import { Section } from '../../core/enums/section.enum';
@@ -22,10 +22,36 @@ import { StarCanvasComponent } from '../../shared/components/star-canvas/star-ca
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
   readonly section = Section;
+
+  ngAfterViewInit(): void {
+    this.setScrollObserver();
+  }
 
   goToAboutSection(): void {
     ScreenUtils.goToSpecificElementById(Section.about);
+  }
+
+  private setScrollObserver() {
+    const faders = document.querySelectorAll('.scroll-fade-in');
+    const appearOptions: IntersectionObserverInit = {
+      rootMargin: '-120px 0px -120px 0px'
+    };
+    const appearOnScroll = new IntersectionObserver(
+      (entries: IntersectionObserverEntry[], appearOnScroll: IntersectionObserver) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+            appearOnScroll.unobserve(entry.target);
+          }
+        });
+      },
+      appearOptions,
+    );
+
+    faders.forEach((fader) => {
+      appearOnScroll.observe(fader);
+    });
   }
 }

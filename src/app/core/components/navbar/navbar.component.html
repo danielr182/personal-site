@@ -7,7 +7,7 @@
   <div
     class="absolute left-0 size-full bg-mainOpacity shadow-[0px_4px_10px_-2px_black] backdrop-blur-sm transition-all"
     [ngClass]="isNavbarDisplayed && prevScrollpos > 0 ? 'visible' : 'invisible'"></div>
-  <a class="z-20 my-2">
+  <a class="animate animate-fade-in z-20 my-2">
     <img
       src="/assets/icons/logo-dr.svg"
       alt="Website logo"
@@ -17,11 +17,13 @@
   <ul class="hidden list-none items-center text-primary sm:flex">
     <ng-container *ngTemplateOutlet="navOptions"></ng-container>
   </ul>
-  <div class="z-50 hidden h-full items-center sm:flex">
+  <div class="animate animate-fade-in delay z-50 hidden h-full items-center sm:flex">
     <a href="/assets/docs/resume.pdf" target="_blank" class="btn-primary h-fit cursor-pointer">Resume</a>
   </div>
   <div class="flex h-full items-center sm:hidden">
-    <a (click)="setNavbarCollapsed(!isSideNavbarCollapsed)" class="relative z-50 flex h-full w-10">
+    <a
+      (click)="setNavbarCollapsed(!isSideNavbarCollapsed)"
+      class="animate animate-fade-in relative z-50 flex h-full w-10">
       <img
         class="nav-action-icon scale-[2]"
         [ngClass]="{ 'scale-y-0 opacity-0': !isSideNavbarCollapsed }"
@@ -52,7 +54,7 @@
 
 <ng-template #navOptions>
   @for (option of options; track $index) {
-    <li class="relative mx-4 text-center">
+    <li class="animate-sequence relative mx-4 text-center">
       <a class="link" (click)="gotoSection(option.elementId)">{{ option.label }}</a>
     </li>
   }
