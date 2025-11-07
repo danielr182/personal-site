@@ -15,10 +15,25 @@ export class ExperienceComponent {
   readonly workExperiences: WorkExperience[] = [
     {
       activities: [
+        'Drove a major code refactoring and modernization initiative to decouple the platform from large third-party dependencies (JQuery, PrototypeJS)',
+        "Implemented a stable hybrid application model where newly refactored Angular 18 components are successfully downgraded to seamlessly coexist with the existing legacy codebase (PHP/AngularJS)",
+        'Led the technical execution for a core team of 8 Angular developers',
+        'Developed and maintained multiple in-house Angular libraries to standardize business logic and reusable components across all products',
+      ],
+      company: 'Intive',
+      img: 'intive.png',
+      isCollapsed: true,
+      jobTitle: 'Senior Software Engineer',
+      startMonth: 'August',
+      startYear: '2024',
+    },
+    {
+      activities: [
         'Upgraded Angular v9 apps to v15',
         "Created web apps to replace the client's legacy ones",
         'Created new features and functionalities in Angular apps (v15)',
         'Created Angular libraries that were used in other Angular apps',
+        'Performed bug fixes and code reviews'
       ],
       company: 'Perficient',
       img: 'perficient.png',
@@ -32,6 +47,7 @@ export class ExperienceComponent {
         'Got a promotion from SSR Adv to SR',
         'Designed and proposed a solution to decouple a monolithic Angular app into a microfrontend-based one',
         'Created new features and functionalities in Angular apps (v9)',
+        'Performed bug fixes and code reviews',
       ],
       company: 'Globant',
       img: 'globant.png',
@@ -45,6 +61,7 @@ export class ExperienceComponent {
         'Created new features and functionalities in Angular apps (JS, v2, v5)',
         'Implemented REST services in Java (Spring)',
         'Coached junior web developers on the team',
+        'Performed bug fixes and code reviews',
       ],
       company: 'IBM',
       img: 'ibm.png',
@@ -58,6 +75,7 @@ export class ExperienceComponent {
         'Led functional testing team',
         'Designed and Implemented the software testing process',
         'Planned, executed, and closed software testing projects',
+        'Performed bug fixes and code reviews',
       ],
       company: 'IBM',
       img: 'ibm.png',
